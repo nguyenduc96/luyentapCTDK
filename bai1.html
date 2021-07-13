@@ -11,8 +11,8 @@
 <p id="output" style="color: red; font-size: 25px; font-weight: bold"></p>
 <script>
     function soChia(){
-        let a = parseInt(document.getElementById('so1').value);
-        let b = parseInt(document.getElementById('so2').value);
+        let a = document.getElementById('so1').value;
+        let b = document.getElementById('so2').value;
         let text;
         if (a==""&&b!=""){
             text = "Bạn chưa nhập số bị chia.";
@@ -32,6 +32,7 @@
         else {
             text="Số thứ nhất không chia hết cho số thứ hai";
         }
+        // console.log(text)
         document.getElementById('output').innerHTML=text;
     }
 

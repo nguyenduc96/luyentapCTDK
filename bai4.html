@@ -12,16 +12,16 @@
 <p id="output"></p>
 <script>
   function kiemTra(){
-    let a = parseInt(document.getElementById('so1').value);
-    let b = parseInt(document.getElementById('so2').value);
-    let c = parseInt(document.getElementById('so3').value);
+    let a = document.getElementById('so1').value;
+    let b = document.getElementById('so2').value;
+    let c = document.getElementById('so3').value;
     let text;
     let max;
     max = Math.max(a,b,c);
     if (max==a && max== b && max ==c){
       text = " Ba số hạng bằng nhau";
     }
-    else if (max== a&& max==b){
+    else if (max== a && max==b){
       text = "Số thứ nhất và số thứ hai lớn nhất và bằng nhau";
     }
     else if (max==a && max ==c){

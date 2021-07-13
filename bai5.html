@@ -5,19 +5,82 @@
     <title>Kiểm tra học lực</title>
 </head>
 <body>
-<p>Điểm bài kiểm tra: <input type="number" id="diem1" placeholder="Nhập điểm kiểm tra" /></p>
-<p>Điểm giữa kỳ: <input type="number" id="diem2" placeholder="Nhập điểm giữa kỳ" /></p>
-<p>Điểm cuối kỳ: <input type="number" id="diem3" placeholder="Nhập điểm cuối kỳ" /></p>
+<p>Điểm bài kiểm tra: <input type="number" id="diem1" placeholder="Nhập điểm kiểm tra"/></p>
+<p>Điểm giữa kỳ: <input type="number" id="diem2" placeholder="Nhập điểm giữa kỳ"/></p>
+<p>Điểm cuối kỳ: <input type="number" id="diem3" placeholder="Nhập điểm cuối kỳ"></p>
 <button onclick="ktHocluc()">Kiểm tra</button>
-<p id="output"></p>
+<p id="output" style="color: red; font-size: 25px; font-weight: bold"></p>
 <script>
     function ktHocluc(){
-        let diemkt = parseInt(document.getElementById('diem1').value);
-        let diemgk = parseInt(document.getElementById('diem2').value);
-        let diemck = parseInt(document.getElementById('diem3').value);
-        let diemtb= (diemkt + diemgk*2 + diemck*3)/6;
+        let diemkt = document.getElementById('diem1').value;
+        let diemgk = document.getElementById('diem2').value;
+        let diemck = document.getElementById('diem3').value;
+        let diemtb= (diemkt*1 + diemgk*2 + diemck*3)/6;
         let text;
-        if (diemtb<5){
+        if (diemkt=="" && diemgk =="" && diemck==""){
+            text="Bạn chưa nhập điểm";
+        }
+        else if ((diemkt>=0 && diemkt <=10) && diemgk =="" && diemck==""){
+            text="Bạn chưa nhập điểm giữa kỳ và cuối kỳ";
+        }
+        else if ((diemgk>=0 && diemgk <=10) && diemkt == "" && diemck=="") {
+            text = "Bạn chưa nhập điểm kiểm tra và cuối kỳ";
+        }
+        else if ((diemck>=0 && diemck <=10) && diemkt == "" && diemgk=="") {
+            text = "Bạn chưa nhập điểm kiểm tra và giữa kỳ";
+        }
+        else if ((diemck>=0 && diemck <=10) && (diemkt<=10 && diemkt>=0) && diemgk=="") {
+            text = "Bạn chưa nhập điểm giữa kỳ";
+        }
+        else if ((diemgk>=0 && diemgk <=10) && (diemkt<=10 && diemkt>=0) && diemck=="") {
+            text = "Bạn chưa nhập điểm cuối kỳ";
+        }
+        else if ((diemgk>=0 && diemgk <=10) && (diemck<=10 && diemck>=0) && diemkt=="") {
+            text = "Bạn chưa nhập điểm kiểm tra";
+        }
+        else if ((diemgk<0 && diemgk>10) && (diemck>10 && diemck<0) && (diemkt<0 && diemkt>10)) {
+            text = "Bạn nhập điểm sai";
+        }
+        else if ((diemgk=="") && (diemck=="") && (diemkt<0 || diemkt>10)) {
+            text = "Bạn nhập sai điểm  kiểm tra, chưa nhập điểm giữa kỳ và cuối kỳ";
+        }
+        else if ((diemkt=="") && (diemck=="") && (diemgk<0 || diemgk>10)) {
+            text = "Bạn nhập sai điểm  cuối kỳ, chưa nhập điểm kiểm tra và cuối kỳ";
+        }
+        else if ((diemkt=="") && (diemgk=="") && (diemck<0 || diemck>10)) {
+            text = "Bạn nhập sai điểm  cuối kỳ, chưa nhập điểm kiểm tra và giữa kỳ";
+        }
+        else if ((diemgk=="") && (diemkt<0 || diemkt>10) && (diemck<0 || diemck>10)) {
+            text = "Bạn nhập sai điểm  kiểm tra và cuối kỳ, chưa nhập điểm giữa kỳ";
+        }
+        else if ((diemck=="") && (diemkt<0 || diemkt>10) && (diemgk<0 || diemgk>10)) {
+            text = "Bạn nhập sai điểm kiểm tra và giữa kỳ, chưa nhập điểm cuối kỳ";
+        }
+        else if ((diemkt=="") && (diemck<0 || diemck>10) && (diemgk<0 || diemgk>10)) {
+            text = "Bạn nhập sai  điểm giữa kỳ và cuối kỳ, chưa nhập điểm kiểm tra";
+        }
+        else if ((diemkt>=0 && diemkt<=10) && (diemck<0 || diemck>10) && (diemgk<0 || diemgk>10)) {
+            text = "Bạn nhập sai điểm giữa kỳ và cuối kỳ";
+        }
+        else if ((diemgk>=0 && diemgk<=10) && (diemck<0 || diemck>10) && (diemkt<0 || diemkt>10)) {
+            text = "Bạn nhập sai điểm kiểm tra và cuối kỳ";
+        }
+        else if ((diemck>=0 && diemck<=10) && (diemgk<0 || diemgk>10) && (diemkt<0 || diemkt>10)) {
+            text = "Bạn nhập sai điểm kiểm tra và giữa kỳ";
+        }
+        else if ((diemck>=0 && diemck<=10) && (diemgk>=0 && diemgk<=10) && (diemkt<0 || diemkt>10)) {
+            text = "Bạn nhập sai  điểm kiểm tra";
+        }
+        else if ((diemck>=0 && diemck<=10) && (diemkt>=0 && diemkt<=10) && (diemgk<0 || diemgk>10)) {
+            text = "Bạn nhập sai điểm giữa kỳ";
+        }
+        else if ((diemgk>=0 && diemgk<=10) && (diemkt>=0 && diemkt<=10) && (diemck<0 || diemck>10)) {
+            text = "Bạn nhập sai điểm cuối kỳ";
+        }
+        else if ((diemck<0 || diemck>10) && (diemgk<0 || diemgk>10) && (diemkt<0 || diemkt>10)) {
+            text = "Bạn nhập sai điểm";
+        }
+        else  if (diemtb<5){
             text ="Điểm trung bình = "+diemtb+ " học lực Yếu";
         }
         else if (diemtb<6.5){
@@ -30,7 +93,7 @@
             text="Điểm trung bình = "+diemtb+ " học lực Giỏi";
         }
         else {
-            text="Bạn nhập sai điểm";
+            text = "Bạn nhập sai điểm";
         }
     document.getElementById('output').innerHTML= text;
     }
