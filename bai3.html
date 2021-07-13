@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm sô âm, dương</title>
+</head>
+<body>
+<p>Nhập số: <input type="number" id="input"></p>
+<button onclick="timSo()">Kiểm tra</button>
+<p id="output" style="color: red; font-weight: bold; font-size: 25px"></p>
+<script>
+  function timSo(){
+    let a = parseInt(document.getElementById('input').value);
+    let text;
+    if (a>0){
+      text = "Đây là số dương";
+    }
+    else if (a<0){
+      text= "Đây là số âm";
+    } else {
+      text ="Đây là số 0"
+    }
+    document.getElementById('output').innerHTML= text;
+  }
+</script>
+</body>
+</html>

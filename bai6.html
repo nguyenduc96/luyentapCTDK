@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoa hồng</title>
+</head>
+<body>
+<p>Nhập số tiền: <input type="number" id="sotien" placeholder="Nhập số tiền"></p>
+<button onclick="tinhHoahong()">Tính hoa hồng</button>
+<p id="output"></p>
+<script>
+  function tinhHoahong(){
+    let sotien = parseInt(document.getElementById('sotien').value);
+    let text;
+    if (sotien<1000000){
+      text= "Tiền hoa hồng = " +(sotien*2/100);
+    }
+    else if (sotien<5000000){
+      text = "Tiền hoa hồng = " + (sotien*5/100);
+    } else {
+      text = "Tiền hoa hồng = " + (sotien*10/100);
+    }
+    document.getElementById('output').innerHTML=text;
+  }
+</script>
+</body>
+</html>

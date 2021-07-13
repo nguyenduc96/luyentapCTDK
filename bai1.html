@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chia 2 số</title>
+</head>
+<body>
+<p>Nhập số thứ nhất: <input type="number" id="so1" placeholder="Nhập số bị chia"></p>
+<p>Nhập số thứ hai: <input type="number" id="so2" placeholder="Nhập số chia"></p>
+<button onclick="soChia()">Tính</button>
+<p id="output" style="color: red; font-size: 25px; font-weight: bold"></p>
+<script>
+    function soChia(){
+        let a = parseInt(document.getElementById('so1').value);
+        let b = parseInt(document.getElementById('so2').value);
+        let text;
+        if (a==""&&b!=""){
+            text = "Bạn chưa nhập số bị chia.";
+        }
+        else if (a!=""&&b==""){
+            text= "Bạn chưa nhập số chia.";
+        }
+        else if (a!=0&&b==0){
+            text="Phép chia không hợp lệ vì số chia bằng 0";
+        }
+        else if (a==""&&b==""){
+            text= "Bạn chưa nhập số";
+        }
+        else if (a%b==0){
+            text="Số thứ nhất chia hết cho số thứ hai";
+        }
+        else {
+            text="Số thứ nhất không chia hết cho số thứ hai";
+        }
+        document.getElementById('output').innerHTML=text;
+    }
+
+
+</script>
+</body>
+</html>

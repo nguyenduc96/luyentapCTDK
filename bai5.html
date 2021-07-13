@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra học lực</title>
+</head>
+<body>
+<p>Điểm bài kiểm tra: <input type="number" id="diem1" placeholder="Nhập điểm kiểm tra" /></p>
+<p>Điểm giữa kỳ: <input type="number" id="diem2" placeholder="Nhập điểm giữa kỳ" /></p>
+<p>Điểm cuối kỳ: <input type="number" id="diem3" placeholder="Nhập điểm cuối kỳ" /></p>
+<button onclick="ktHocluc()">Kiểm tra</button>
+<p id="output"></p>
+<script>
+    function ktHocluc(){
+        let diemkt = parseInt(document.getElementById('diem1').value);
+        let diemgk = parseInt(document.getElementById('diem2').value);
+        let diemck = parseInt(document.getElementById('diem3').value);
+        let diemtb= (diemkt + diemgk*2 + diemck*3)/6;
+        let text;
+        if (diemtb<5){
+            text ="Điểm trung bình = "+diemtb+ " học lực Yếu";
+        }
+        else if (diemtb<6.5){
+            text="Điểm trung bình = "+diemtb+ " học lực Trung bình";
+        }
+        else if (diemtb<8){
+            text="Điểm trung bình = "+diemtb+ " học lực Khá";
+        }
+        else if (diemtb<=10){
+            text="Điểm trung bình = "+diemtb+ " học lực Giỏi";
+        }
+        else {
+            text="Bạn nhập sai điểm";
+        }
+    document.getElementById('output').innerHTML= text;
+    }
+</script>
+</body>
+</html>

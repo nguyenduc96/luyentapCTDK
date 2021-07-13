@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lớn nhất</title>
+</head>
+<body>
+<p>Nhập số thứ nhất: <input type="number" id="so1" placeholder="Nhập số thứ nhất"></p>
+<p>Nhập số thứ hai: <input type="number" id="so2" placeholder="Nhập số thứ hai"></p>
+<p>Nhập số thứ ba: <input type="number" id="so3" placeholder="Nhập số thứ ba"></p>
+<button onclick="kiemTra()">Kiểm tra</button>
+<p id="output"></p>
+<script>
+  function kiemTra(){
+    let a = parseInt(document.getElementById('so1').value);
+    let b = parseInt(document.getElementById('so2').value);
+    let c = parseInt(document.getElementById('so3').value);
+    let text;
+    let max;
+    max = Math.max(a,b,c);
+    if (max==a && max== b && max ==c){
+      text = " Ba số hạng bằng nhau";
+    }
+    else if (max== a&& max==b){
+      text = "Số thứ nhất và số thứ hai lớn nhất và bằng nhau";
+    }
+    else if (max==a && max ==c){
+      text = "Số thứ nhất và số thứ ba lớn nhất và bằng nhau";
+    }
+    else if (max==b && max==c){
+      text = "Số thứ hai và số thứ ba lớn nhất và bằng nhau";
+    }
+    else if (max == b ){
+      text = "Số thứ hai = " + b + " là số lớn nhất";
+    }
+    else if (max==c){
+      text = "Số thứ ba = " + c + " là số lớn nhất";
+    }
+    else {
+      text = "Số thứ nhất = " + a + " là số lớn nhất";
+    }
+    document.getElementById('output').innerHTML= text;
+  }
+</script>
+</body>
+</html>

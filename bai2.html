@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tuổi vào lớp 10</title>
+</head>
+<body>
+<p>Nhập số tuổi: <input type="number" id="input"></p>
+<button onclick="soTuoi()">Kiểm tra</button>
+<p id="output"></p>
+<script>
+    function soTuoi(){
+        let tuoi = parseInt(document.getElementById('input').value);
+        let text;
+        if (tuoi==15){
+            text= "Đủ tuổi vào lớp 10";
+        } else if (tuoi>15){
+            text= "Quá tuổi vào lớp 10";
+        }else {
+            text= "Không đủ tuổi vào lớp 10";
+        }
+        document.getElementById('output').innerHTML=text;
+    }
+</script>
+</body>
+</html>

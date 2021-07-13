@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cước điện thoại</title>
+</head>
+<body>
+<p>Nhập số phút gọi: <input type="number" placeholder="Nhập số phút gọi" id="input"></p>
+<button onclick="tinhTien()">Tính tiền</button>
+<p id="output"></p>
+<script>
+  function tinhTien(){
+    let mn = parseInt(document.getElementById('input').value);
+    let text;
+    if (mn<30){
+      text = "Số tiền cước = " + (mn*800) + " VNĐ";
+    }else if (mn<60){
+      text= "Số tiền cước = " + (mn*1000) +"VNĐ";
+    }else {
+      text= "Số tiền cước = " + (mn*1200) +"VNĐ";
+    }
+    document.getElementById('output').innerHTML=text;
+  }
+</script>
+</body>
+</html>
